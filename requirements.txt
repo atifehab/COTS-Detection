@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 torch>=2.0.0
 torchvision>=0.15.0
 Pillow>=9.0.0
@@ -6,3 +7,13 @@ numpy>=1.23.0
 pandas>=1.4.0
 scikit-learn>=1.0.0
 opendatasets>=0.1.22
+=======
+opendatasets
+pandas
+numpy
+torch
+torchvision
+scikit-learn
+streamlit
+Pillow
+>>>>>>> c6e9c50545ae2b44c4156d855d30a541d0b2b3ee
