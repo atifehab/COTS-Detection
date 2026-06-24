@@ -1,39 +1,3 @@
-"""
-=============================================================================
- COTS Detector — Crown-of-Thorns Starfish Classification App
-=============================================================================
- This Streamlit application deploys a fine-tuned EfficientNet-B0 model for
- binary classification of underwater images:
-   - Class 0: "COTS Found" → The image DOES contain a Crown-of-Thorns Starfish
-   - Class 1: "No COTS"    → The image does NOT contain a Crown-of-Thorns Starfish
-
- Architecture Overview:
- ─────────────────────
- 1. MODEL LOADING (cached with @st.cache_resource):
-    - Instantiates torchvision's EfficientNet-B0 with default weights=None
-    - Replaces the classifier head: Linear(1280 → 2) for binary classification
-    - Loads the saved state_dict from `cots_model/` directory
-    - Sets the model to eval mode (disables dropout & uses running BN stats)
-
- 2. IMAGE PREPROCESSING:
-    - Resizes input image to 224×224 (EfficientNet-B0 input size)
-    - Converts to tensor and normalizes using ImageNet statistics:
-      mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
-
- 3. INFERENCE PIPELINE:
-    - Wraps forward pass in torch.no_grad() for memory efficiency
-    - Applies softmax to get class probabilities
-    - Returns predicted class index and confidence scores
-
- 4. UI FEATURES:
-    - Dark-themed premium interface with glassmorphism effects
-    - Drag-and-drop image upload (JPG, JPEG, PNG)
-    - Camera capture for real-time classification
-    - Animated confidence bar with gradient coloring
-    - Detailed probability breakdown for both classes
-=============================================================================
-"""
-
 import streamlit as st
 import torch
 import torch.nn as nn
